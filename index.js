@@ -62,7 +62,7 @@ function formatScope(scope) {
 
 function formatHead({ type, scope, subject }, config) {
   const prelude = config.conventional
-    ? `${type.name}${formatScope(scope)}: ${type.emoji}`
+    ? `${type.emoji} ${type.name}${formatScope(scope)}:`
     : `${type.emoji} ${formatScope(scope)}`
 
   return `${prelude} ${subject}`
@@ -180,7 +180,7 @@ function format(answers) {
  * @type {Object}
  */
 module.exports = {
-  prompter: function(cz, commit) {
+  prompter: function (cz, commit) {
     cz.prompt.registerPrompt('autocomplete', require('inquirer-autocomplete-prompt'))
     cz.prompt.registerPrompt('maxlength-input', require('inquirer-maxlength-input-prompt'))
 
